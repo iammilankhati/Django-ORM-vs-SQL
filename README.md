@@ -74,3 +74,61 @@ Class Person(models.Model):
     age = model.IntegerField()
     gender = model.CharField(max_length=10, blank=True)
 ```
+
+### Fetching
+
+1. Fetch All Row
+**SQL**
+```
+SELECT * FROM Person
+```
+
+**Django**
+```
+persons = Person.objects.all()
+
+for person in persons:
+    print(person.name)
+    print(person.age)
+    print(person.gender)
+```
+
+2. Fetch specific column
+**SQL**
+```
+SELECT name, age FROM Person;
+```
+**Django**
+```
+Person.objects.only('name', 'age')
+```
+
+3. Fetch distinct rows
+**SQL**
+```
+SELECT DISTINCT name, age FROM Person
+```
+**Django**
+```
+Person.objects.values('name', 'age').distinct()
+```
+
+4. Limiting the number of rows fetch
+**SQL**
+```
+SELECT * FROM Person LIMIT 10;
+```
+**Django**
+```
+Person.objects.all()[:10]
+```
+
+5. Limiting and Offsetting
+**SQL**
+```
+SELECT * FROM Person OFFSET 5 LIMIT 10;
+```
+**Django**
+```
+Person.objects.all()[5:15]
+```
