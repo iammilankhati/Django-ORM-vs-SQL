@@ -78,6 +78,7 @@ Class Person(models.Model):
 ### Fetching
 
 1. Fetch All Row
+
 **SQL**
 ```
 SELECT * FROM Person
@@ -94,6 +95,7 @@ for person in persons:
 ```
 
 2. Fetch specific column
+
 **SQL**
 ```
 SELECT name, age FROM Person;
@@ -104,6 +106,7 @@ Person.objects.only('name', 'age')
 ```
 
 3. Fetch distinct rows
+
 **SQL**
 ```
 SELECT DISTINCT name, age FROM Person
@@ -114,6 +117,7 @@ Person.objects.values('name', 'age').distinct()
 ```
 
 4. Limiting the number of rows fetch
+
 **SQL**
 ```
 SELECT * FROM Person LIMIT 10;
@@ -124,6 +128,7 @@ Person.objects.all()[:10]
 ```
 
 5. Limiting and Offsetting
+
 **SQL**
 ```
 SELECT * FROM Person OFFSET 5 LIMIT 10;
