@@ -52,3 +52,25 @@ _type/django-model-type/mysql-type/description_
 - **Text - models.SlugField()** - varchar(50) NOT NULL *accepts a slug - hypens,letters, underscores,numbers and cleans the URL*
 - **Text - models.URlField()** - varchar(200) NOT NULL *accepts the valid URL*
 - **Text - models.UUIDField()** - char(32) NOT NULL *Ensures the provided text is Universally unique identifiers*
+
+
+## Similarities in commands
+
+### Table creation 
+**SQL**
+``` 
+CREATE TABLE Person(
+    id int,
+    name varchar(255),
+    age int NOT NULL,
+    gender varchar(10),
+
+)
+```
+**Django**
+``` 
+Class Person(models.Model):
+    name = models.CharField(max_length=50, blank=True)
+    age = model.IntegerField()
+    gender = model.CharField(max_length=10, blank=True)
+```
